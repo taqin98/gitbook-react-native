@@ -60,3 +60,44 @@ admindata
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+{% swagger method="post" path="" baseUrl="https://gmedia.bz/DemoCase/auth/register" summary="" expanded="true" %}
+{% swagger-description %}
+**Websevice ini digunakan untuk register kedalam aplikasi**
+{% endswagger-description %}
+
+{% swagger-parameter in="header" name="Client-Service" %}
+gmedia-recruitment
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Auth-Key" %}
+demo-admin
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="username" %}
+joni
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="password" %}
+12345
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="repassword" %}
+12345
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
+{
+  "response": {
+    "uid": "4",
+    "token": "8godoajVqNNOFz21npycK6iofUgFXl1kluEJt/WYFts9C8IZqUOf7rOXCe0m4f9B"
+  },
+  "metadata": {
+    "status": 200,
+    "message": "Register berhasil"
+  }
+}
+```
+{% endswagger-response %}
+{% endswagger %}
