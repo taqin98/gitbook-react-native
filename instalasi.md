@@ -69,6 +69,9 @@ Edit `MainActivity.java`&#x20;
 `lokasi : android/app/src/main/java/<your package name>/MainActivity.java`
 
 ```java
+import android.os.Bundle;
+
+
 public class MainActivity extends ReactActivity {
   // ...
   @Override
@@ -79,4 +82,14 @@ public class MainActivity extends ReactActivity {
 }
 
 
+```
+
+### Setting Icon
+
+Edit build.grade
+
+`lokasi : android/app/build.gradle`
+
+```java
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 ```
