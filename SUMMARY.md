@@ -4,7 +4,7 @@
 * [Persiapan](persiapan.md)
 * [Instalasi](instalasi.md)
 * [Starter Pack](starter-pack.md)
-* [Mulai Ngoding](mulai-ngoding.md)
+* [Membuat Screen](membuat-screen.md)
 * [API](api/README.md)
   * [Auth](api/auth.md)
   * [List Karyawan](api/list-karyawan.md)

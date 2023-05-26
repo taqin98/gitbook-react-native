@@ -147,7 +147,7 @@ export {Storage};
 {% endtab %}
 {% endtabs %}
 
-### Folder Component
+### Folder component
 
 buat file sebagai berikut
 
