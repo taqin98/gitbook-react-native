@@ -344,6 +344,105 @@ export default ButtonControl;
 ```
 {% endtab %}
 
+{% tab title="DatePickerControl.js" %}
+```javascript
+import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
+import React from "react";
+import { View } from "react-native";
+
+const DatePickerControl = () => {
+    return(
+        <View>
+        <DateTimePickerAndroid />
+        </View>
+    );
+}
+```
+{% endtab %}
+
+{% tab title="DropdownControl.js" %}
+```javascript
+import React, { useState } from 'react';
+import {StyleSheet, View} from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
+
+const DropdownControl = props => {
+    const [open, setOpen] = useState(false);
+  const aList = [
+    {label: 'Laki-Laki', value: 'L'},
+    {label: 'Perempuan', value: 'P'},
+  ];
+  return (
+    <View style={style.container}>
+      <DropDownPicker items={aList} 
+      value={props.value}
+      setValue={ txt => props.setValue(txt) }
+      open={open} 
+      setOpen={setOpen} 
+        style={style.dropdownStyle}
+        dropDownContainerStyle={style.dropdownStyle}
+      />
+    </View>
+  );
+};
+
+const style = StyleSheet.create({
+    container: {
+        margin: 20,
+        backgroundColor: 'yellow',
+        zIndex: 999
+    },
+    dropdownStyle: {
+        backgroundColor: 'yellow',
+        borderColor: 'transparent'
+    },
+})
+
+export default DropdownControl;
+```
+{% endtab %}
+{% endtabs %}
+
+### Folder api
+
+buat file sebagai berikut
+
+{% tabs %}
+{% tab title="ApiManager.js" %}
+```javascript
+import { baseURL, sessionKey  } from '../util/Helper';
+import { Storage } from '../util/Storage';
+
+const ApiManager = async (metode, params, url) => {
+    const sesi = Storage.GetAsObject(sessionKey);
+
+    let headers = {
+        'Client-Service': 'gmedia-recruitment',
+        'Auth-Key': 'demo-admin',
+        'Content-Type': 'application/json',
+    };
+
+    if (sesi != null || sesi != undefined){
+        headers['Token'] = sesi.token;
+        headers['User-id'] = sesi.uid;
+    }
+    
+    console.log('sesi', sesi);
+
+    const dataRes = await fetch(`${baseURL}${url}`, {
+        method: metode,
+        headers: headers,
+        body: JSON.stringify(params)
+    });
+
+    // console.log(dataRes, 'datares');
+    return dataRes.json().then( data => data).catch(err => err);
+}
+
+export { ApiManager };java
+```
+{% endtab %}
+
 {% tab title="Second Tab" %}
 
 {% endtab %}
